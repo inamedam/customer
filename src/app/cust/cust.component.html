@@ -1,0 +1,70 @@
+<mat-drawer-container class="example-container">
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <!-- Drawer content -->
+    <mat-list>
+      <mat-list-item *ngFor="let item of navItems">
+        <mat-icon mat-list-icon>{{ item.icon }}</mat-icon>
+        <span mat-line>{{ item.label }}</span>
+      </mat-list-item>
+    </mat-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div class="content">
+      <!-- Button to toggle the drawer -->
+      <button mat-icon-button (click)="toggleDrawer()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <div class="container bootstrap snippets bootdey">
+        <div class="row">
+          <div class="user-heading round">
+            <a href="#">
+              <img src="" alt="" />
+            </a>
+            <h1>{{ customer.firstName }}</h1>
+            <p>{{ customer.email }}</p>
+          </div>
+
+          <div class="profile-info col-md-6">
+            <div class="panel panel-footer">
+              <button class="btn btn-warning float-right">Edit</button>
+            </div>
+            <div class="panel">
+              <div class="panel-body bio-graph-info">
+                <h1>Bio Graph</h1>
+                <div class="row">
+                  <div class="bio-row col-md-6">
+                    <p><span>First Name</span>{{ customer.firstName }}</p>
+                  </div>
+                  <div class="bio-row col-md-6">
+                    <p><span>Last Name</span>{{ customer.lastName }}</p>
+                  </div>
+                  <div class="bio-row col-md-6">
+                    <p><span>Country</span>: Australia</p>
+                  </div>
+                  <div class="bio-row col-md-6">
+                    <p><span>Birthday</span>: 13 July 1983</p>
+                  </div>
+                  <div class="bio-row col-md-6">
+                    <p><span>Occupation</span>: UI Designer</p>
+                  </div>
+                  <div class="bio-row col-md-6">
+                    <p><span>Email</span>: jsmithflatlab.com</p>
+                  </div>
+                  <div class="bio-row col-md-6">
+                    <p><span>Mobile</span>: (12) 03 4567890</p>
+                  </div>
+                  <div class="bio-row col-md-6">
+                    <p><span>Phone</span>: 88 (02) 123456</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bloc1">
+              <div class="row"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

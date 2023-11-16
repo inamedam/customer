@@ -1,0 +1,62 @@
+/* :root {
+  --background-color: #ffffff;
+  --text-color: #333333;
+}
+
+[data-theme='dark'] {
+  --background-color: #333333;
+  --text-color: #ffffff;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+} */
+/* styles.css or styles.scss */
+
+@import "~material-icons/iconfont/material-icons.css";
+
+footer {
+  background-color: #7e7d82;
+  box-shadow: 0 0 10px rgba(100, 6, 6, 0.2);
+  color: #000000;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ecommerce-info {
+  flex: 1;
+}
+
+.ecommerce-info h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.ecommerce-info p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.copyright {
+  flex: 1;
+  text-align: right;
+}
+
+.copyright p {
+  font-size: 14px;
+}
+
+.image{
+  width: 20%;
+  margin-bottom: 10%;
+}
+

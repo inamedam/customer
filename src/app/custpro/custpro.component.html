@@ -1,0 +1,112 @@
+<body class="profile-page">
+
+  <div class="main main-raised">
+    <div class="profile-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 ml-auto mr-auto">
+            <div class="profile">
+              <div class="avatar">
+                <img
+                  src="https://i.pinimg.com/236x/44/f2/d8/44f2d8ce7f9c687ea6d3bbb19cb75123.jpg"
+                />
+              </div>
+              <div class="name">
+                <h2 class="title" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+                  <span>{{customer.firstName}} {{customer.lastName}}</span>
+                  <i class = "fa fa-pencil-square-o" (click)="openUpdateModal(customer)" *ngIf="isHovered"></i>
+                </h2>
+
+                <h5>{{customer.id}}</h5>
+              </div>
+            </div>
+            <div>
+              <div class="container mt-5">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="custom-box text-center">
+                      <h5>Email</h5>
+                      <p>{{customer.email}}</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="custom-box text-center">
+                      <h5>Last Log</h5>
+                      <p>{{customer.lastLogin}}</p>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="custom-box text-center">
+                      <h5>Password</h5>
+                      <p>{{customer.password}}</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="custom-box text-center">
+                      <h5>Last Update</h5>
+                      <p>{{customer.lastUpdate}}</p>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="custom-box text-center">
+                      <h5>Valide</h5>
+                      <p><button class="btn btn-success"  [class.valide]="isColorToggled" (click)="togglecolor()">{{customer.validAccount}}</button></p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="custom-box text-center">
+                      <h5>Roles</h5>
+                      <p>{{customer.roles}}</p>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="custom-box text-center">
+                      <h5>Creation Date</h5>
+                      <p>{{customer.creationDate}}</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="custom-box text-center">
+                      <h5>Active</h5>
+                      <p><button class="btn btn-success"  [class.valide]="isToggled" (click)="togglecolor2()">{{customer.active}}</button></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class = "container">
+                <div class = "circle-bg">
+                  <i class = "icon fa fa-bars"> </i>
+                </div>
+                <div class = "outer-icons">
+                  <i class = "one fa fa-pencil-square-o" (click)="openUpdateModal(customer)"></i>
+                  <i class = "two fa fa-history" (click)="showUpdateLog()"> </i>
+                  <i class = "three fa fa-home" routerLink="/login"> </i>
+                  <i class = "four fa fa-list" routerLink="/customers"> </i>
+                </div>
+
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+        <div class="description text-center">
+          <p>log description</p>
+        </div>
+        <div class="row"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer text-center"></footer>
+</body>
