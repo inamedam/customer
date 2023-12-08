@@ -22,23 +22,33 @@ export class LoginService {
       tap((response: any) => {
         console.log('Login response:', response);
         if (response && response.data && response.data.token) {
-          // Assuming the token is available in the 'data.token' property of the response
+          // Correct the path to access the token property
           this.setToken(response.data.token);
         }
       })
     );
   }
 
+
   setToken(token: string): void {
     this.token = token;
     // Save the token securely (e.g., localStorage or a cookie)
     localStorage.setItem('token', token);
-    console.log('Token saved:', token);
+    console.log('Token saved inside set token:', token);
   }
 
   getToken(): string {
     // Retrieve the token securely (e.g., localStorage or a cookie)
+
     return localStorage.getItem('token') || '';
+    console.log('Token saved inside get token:', localStorage.getItem('token'));
+
   }
+
+  logout(): void {
+    localStorage.removeItem('token');
+    console.log('Logged out');
+  }
+
 
 }

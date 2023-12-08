@@ -254,3 +254,21 @@ img.rounded {
 .title:hover i {
   display: inline-block;
 }
+
+.long-password{
+  word-wrap: break-word;
+}
+
+
+.basic-container {
+  padding: 30px;
+}
+
+
+
+
+
+
+
+
+

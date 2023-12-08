@@ -1,5 +1,17 @@
 <div class="card my-5">
   <div class="card-body">
+    <nz-input-group [nzSuffix]="suffixIconSearch">
+      <input
+        type="text"
+        nz-input
+        placeholder="input search text"
+        (input)="onSearch($event)"
+      />
+    </nz-input-group>
+    <ng-template #suffixIconSearch>
+      <span nz-icon nzType="search"></span>
+    </ng-template>
+
     <table class="table table-bordered table-striped">
       <thead class="thead-dark">
         <tr>
@@ -8,21 +20,26 @@
           <th scope="col">FIRST NAME</th>
           <th scope="col">LAST NAME</th>
           <th scope="col">Email</th>
+          <th scope="col">Active</th>
           <th scope="col">Update button</th>
+          <th scope="col">Soft Delete button</th>
           <th scope="col">Delete button</th>
         </tr>
       </thead>
-      <tbody>
-        <tr *ngFor="let customer of customers">
+      <tbody >
+        <tr *ngFor="let customer of customersPage.content">
           <td><button class="bn5" [routerLink]="['/profile', customer.id]">Profile</button></td>
           <td>{{ customer.id }}</td>
           <td>{{ customer.firstName}}</td>
           <td>{{ customer.lastName}}</td>
           <td><a href="mailto:{{ customer.email }}">{{ customer.email }}</a></td>
+          <td><button class="btn btn-dark">{{ customer.active}}</button></td>
           <td><button class="btn btn-dark" (click)="openUpdateModal(customer)">Update</button></td>
-          <td><button class="btn btn-dark" (click)="deleteCustomer(customer.id)">Delete</button></td>
+          <td><button class="btn btn-dark" (click)="deactivateCustomer(customer.id)" [disabled]="!customer.active">Soft-Delete</button></td>
         </tr>
       </tbody>
     </table>
+
+    <nz-demo-pagination-changer></nz-demo-pagination-changer>
   </div>
 </div>

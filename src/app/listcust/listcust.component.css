@@ -88,3 +88,32 @@ body {
   top: 0;
   border-radius: 10px;
 }
+/* Style for the delete icon */
+.delete-icon {
+  font-size: 18px; /* Adjust the size as needed */
+  cursor: pointer;
+}
+
+/* Style for the delete button */
+.delete-button {
+  display: none;
+}
+
+/* Apply styles when hovering over the table row */
+tr:hover .delete-icon {
+  display: none;
+}
+
+tr:hover .delete-button {
+  display: inline-block;
+}
+
+nz-input-group {
+  margin-bottom: 5px;
+  width: 200px;
+}
+
+input,
+button {
+  height: 100%;
+}

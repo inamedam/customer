@@ -1,4 +1,5 @@
 export class Customer {
+
   id: string = '';
   firstName: string = "First Name";
   lastName: string = "Last Name";
@@ -28,4 +29,7 @@ export class Customer {
   //   this.active = active;
   //   this.roles = roles;
   // }
+
+
+
 }

@@ -38,10 +38,23 @@ import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import { MatMenuModule } from '@angular/material/menu';
 import { CustcardComponent } from './custcard/custcard.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { en_US } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+
+import { NzDemoInputSearchInputComponent } from './search/search.component';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzDemoPaginationChangerComponent} from './pagination/pagination.component';
+import { NzPaginationModule } from 'ng-zorro-antd/pagination';
+import { SearchService } from './search.service';
+import { PaginationService } from './pagination.service';
 
 
 
-
+registerLocaleData(en);
 
 @NgModule({
   declarations: [
@@ -56,7 +69,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ProfileComponent,
     LogComponent,
     MiniprofileComponent,
-    CustcardComponent
+    CustcardComponent,
+    NzDemoInputSearchInputComponent,
+    NzDemoPaginationChangerComponent
   ],
   imports: [
     BrowserModule,
@@ -71,12 +86,15 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatIconModule,
     MatButtonModule,
     MatListModule,
-    MatSidenavModule, // Import MatSidenavModule instead of MatDrawer and MatDrawerContainer
+    MatSidenavModule,
     MatToolbarModule,
     MatMenuModule,
     MatNativeDateModule,
-    MatSnackBarModule
-
+    MatSnackBarModule,
+    NzInputModule,
+    NzButtonModule,
+    NzIconModule,
+    NzPaginationModule
 
 
   ],
@@ -85,7 +103,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     // { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     LoginService,
     DarkModeService,
-    AuthInterceptor
+    AuthInterceptor,
+    { provide: NZ_I18N, useValue: en_US },
+    SearchService,
+    PaginationService
 
   ],
   bootstrap: [AppComponent]
