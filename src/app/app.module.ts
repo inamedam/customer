@@ -51,13 +51,26 @@ import { NzDemoPaginationChangerComponent} from './pagination/pagination.compone
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 import { SearchService } from './search.service';
 import { PaginationService } from './pagination.service';
+import { DeleteConfirmationDialogComponent } from './delete-confirmation-dialog/delete-confirmation-dialog.component';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { NzSelectModule } from 'ng-zorro-antd/select';
 
+import { NzPopoverModule } from 'ng-zorro-antd/popover';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { NzTagModule } from 'ng-zorro-antd/tag';
 
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
+
     AppComponent,
     CustComponent,
     CustproComponent,
@@ -71,7 +84,9 @@ registerLocaleData(en);
     MiniprofileComponent,
     CustcardComponent,
     NzDemoInputSearchInputComponent,
-    NzDemoPaginationChangerComponent
+    NzDemoPaginationChangerComponent,
+    DeleteConfirmationDialogComponent
+
   ],
   imports: [
     BrowserModule,
@@ -94,8 +109,19 @@ registerLocaleData(en);
     NzInputModule,
     NzButtonModule,
     NzIconModule,
-    NzPaginationModule
-
+    NzPaginationModule,
+    NzLayoutModule,
+    //
+    NzMenuModule,
+    NzSelectModule,
+    NzPopoverModule,
+    NzDropDownModule,
+    NzDatePickerModule,
+    NzTableModule,
+    NzFormModule ,
+    NzCheckboxModule,
+    NzDividerModule,
+    NzTagModule
 
   ],
   providers: [

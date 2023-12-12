@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -9,8 +10,9 @@ import { tap } from 'rxjs/operators';
 export class LoginService {
   private apiUrl = 'http://localhost:8080/v1/users/login';
   private token: string = '';
+  isAuthenticated: boolean = true;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient ,private router: Router) { }
 
   login(email: string, password: string): Observable<any> {
     const body = { email, password };
@@ -47,8 +49,12 @@ export class LoginService {
 
   logout(): void {
     localStorage.removeItem('token');
+    this.isAuthenticated = false;
     console.log('Logged out');
+    this.router.navigate(['/login']); // Navigate to the login page
+  }
+
   }
 
 
-}
+

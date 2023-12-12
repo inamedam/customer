@@ -36,10 +36,104 @@
           <td><button class="btn btn-dark">{{ customer.active}}</button></td>
           <td><button class="btn btn-dark" (click)="openUpdateModal(customer)">Update</button></td>
           <td><button class="btn btn-dark" (click)="deactivateCustomer(customer.id)" [disabled]="!customer.active">Soft-Delete</button></td>
+          <td><button class="btn btn-dark" (click)="openDeleteConfirmationDialog(customer.id)">Delete</button></td>
         </tr>
       </tbody>
     </table>
 
     <nz-demo-pagination-changer></nz-demo-pagination-changer>
   </div>
+</div>
+
+<!-- ********************************************************* -->
+
+<!--
+<nz-table #sortTable nzBordered nzPaginationType="small"
+[nzData]="listOfUsers"
+nzTableLayout="fixed"
+[nzShowPagination]="false"
+>
+  <thead>
+    <tr>
+      <th *ngFor="let column of listOfColumn" [nzSortFn]="column.compare" [nzSortPriority]="column.priority"
+        (nzSortOrderChange)="sort($event, column)">
+        {{ column.title }}
+      </th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let customer of customersPage.content">
+        <td>{{ customer.firstName }}</td>
+        <td>{{ customer.lastName }}</td>
+        <td>{{ customer.userName }}</td>
+        <td>{{ customer.email }}</td>
+        <td>{{ customer.creationDate | date: 'dd-MM-yyyy'}}</td>
+        <td>
+          <nz-tag [nzColor]="customer.active ? 'green' : 'red'">
+            {{ customer.active ? 'Active' : 'Inactive' }}
+          </nz-tag>
+          {{ customer.active}}
+        </td>
+        <td>
+          <a nz-icon nzType="edit" nzTheme="fill" (click)="openUpdateModal(customer)"></a>
+        </td>
+        <td>
+
+          <a nz-icon nzType="deactivate" nzTheme="fill" (click)="deactivateCustomer(customer.id)"></a>
+        </td>
+    </tr>
+  </tbody>
+</nz-table> -->
+
+
+<div class="card my-5">
+<nz-table
+  #sortTable
+  nzBordered
+  nzPaginationType="small"
+  [nzData]="listOfUsers"
+  nzTableLayout="fixed"
+  [nzShowPagination]="false"
+>
+  <thead>
+    <tr>
+      <th>PROFILE</th>
+      <th
+        *ngFor="let column of listOfColumn"
+        [nzSortFn]="column.compare"
+        [nzSortPriority]="column.priority"
+        (nzSortOrderChange)="sort($event, column)"
+      >
+        {{ column.title }}
+      </th>
+      <th>Edit</th>
+      <th>Delete</th>
+      <th>Delete data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let customer of customersPage.content">
+      <td><button class="bn5" [routerLink]="['/profile', customer.id]">Profile</button></td>
+      <td>{{ customer.firstName }}</td>
+      <td>{{ customer.lastName }}</td>
+      <td  [style.width.px]="200">{{ customer.email }}</td>
+      <td>
+        <nz-tag [nzColor]="customer.active ? 'green' : 'red'">
+          {{ customer.active ? 'Active' : 'Inactive' }}
+        </nz-tag>
+        <!-- {{ customer.active }} -->
+      </td>
+      <td>
+        <a nz-icon nzType="edit" nzTheme="fill" (click)="openUpdateModal(customer)"></a>
+      </td>
+      <td>
+        <a nz-icon nzType="delete" nzTheme="fill" (click)="deactivateCustomer(customer.id)"></a>
+      </td>
+      <td><button class="btn btn-dark" (click)="openDeleteConfirmationDialog(customer.id)">Delete</button></td>
+
+    </tr>
+  </tbody>
+</nz-table>
 </div>

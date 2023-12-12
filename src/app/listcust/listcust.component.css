@@ -117,3 +117,7 @@ input,
 button {
   height: 100%;
 }
+
+.custom-width-column{
+  width: 500px;
+}

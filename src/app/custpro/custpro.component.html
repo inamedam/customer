@@ -1,8 +1,9 @@
+<div class="notification" *ngIf="!customer.active">
+  <p class="not">Your profile is currently inactive. Please activate your profile to access full functionality.</p>
+  <button class="btn btn-dark not" routerLink="/customers" *ngIf="!customer.active">Dashboard</button>
+</div>
 
-<body class="profile-page">
-  <div>
-    <!-- <img src="https://assets.codepen.io/1480814/adam-argyle.png" alt="Adam argyle" > -->
-  </div>
+<body class="profile-page" [class.disabled]="!customer.active">
     <div class="main main-raised">
     <div class="profile-content">
       <div class="container">
@@ -16,8 +17,8 @@
               </div>
               <div class="name">
                 <h2 class="title" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+                  <i class = "fa fa-pencil fa-fw" (click)="openUpdateModal(customer)" *ngIf="isHovered" style="font-size: 18px;"></i>
                   <span>{{customer.firstName}} {{customer.lastName}}</span>
-                  <i class = "fa fa-pencil-square-o" (click)="openUpdateModal(customer)" *ngIf="isHovered"></i>
                 </h2>
 
                 <h5>{{customer.id}}</h5>
@@ -44,7 +45,7 @@
                   <div class="col-md-6">
                     <div class="custom-box text-center">
                       <h5>Password</h5>
-                      <p class="long-password"><button class="btn btn-success">Reset</button></p>
+                      <p class="long-password"><button [disabled]="!customer.active" class="bn5">Reset</button></p>
                     </div>
                   </div>
                   <div class="col-md-6">
@@ -59,7 +60,7 @@
                   <div class="col-md-6">
                     <div class="custom-box text-center">
                       <h5>Valide</h5>
-                      <p><button class="btn btn-success"  [class.valide]="isColorToggled" (click)="togglecolor()">{{customer.validAccount}}</button></p>
+                      <p><button class="btn btn-success" [disabled]="!customer.active" [class.valide]="isColorToggled" (click)="togglecolor()">{{customer.validAccount}}</button></p>
                     </div>
                   </div>
                   <div class="col-md-6">
@@ -80,7 +81,7 @@
                   <div class="col-md-6">
                     <div class="custom-box text-center">
                       <h5>Active</h5>
-                      <p><button class="btn btn-success"  [class.valide]="isToggled" (click)="togglecolor2()">{{customer.active}}</button></p>
+                      <p><button class="btn btn-success" [disabled]="!customer.active" [class.valide]="isToggled" (click)="togglecolor2()">{{customer.active}}</button></p>
                     </div>
                   </div>
                 </div>

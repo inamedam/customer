@@ -3,7 +3,7 @@
 <!-- <app-custpromax></app-custpromax>
 <app-custlist></app-custlist> -->
 <!-- <app-custlistpro></app-custlistpro> -->
-
+<!--
 
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block" rel="stylesheet">
@@ -34,4 +34,103 @@
       <router-outlet></router-outlet>
     </div>
   </div>
-</div>
+</div> -->
+
+<nz-layout class="app-layout">
+  <nz-sider class="menu-sidebar"
+            nzCollapsible
+            nzWidth="256px"
+            nzBreakpoint="md"
+            [(nzCollapsed)]="isCollapsed"
+            [nzTrigger]="null">
+    <div class="sidebar-logo">
+
+        <img src="../assets/logow.png" alt="logo">
+        <h4 class="title">Tech Galaxy</h4>
+        <h6 >Your Journey To The Digital Cosmos</h6>
+
+    </div>
+    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/login">Login Form</a>
+          </li>
+        </ul>
+      </li>
+      <li nz-submenu nzOpen nzTitle="Users" nzIcon="user">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/users-list">Users List</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/edit-user">Edit User</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/add-new-user">Add User</a>
+          </li>
+        </ul>
+      </li>
+      <li nz-submenu nzOpen nzTitle="Customers" nzIcon="user">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/customers">Customers List</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/addcustomer">Add Customer</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/profile">Customer Profile</a>
+          </li>
+        </ul>
+      </li>
+      <!-- **Products -->
+      <li nz-submenu nzOpen nzTitle="Products" nzIcon="code-sandbox">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/customers">Products List</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/addcustomer">Add Product</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/profile">Update Product</a>
+          </li>
+          </ul>
+        </li>
+          <!-- **Products -->
+          <li nz-submenu nzOpen nzTitle="Order" nzIcon="shopping-cart">
+            <ul>
+              <li nz-menu-item nzMatchRouter>
+                <a routerLink="/order">Order List</a>
+              </li>
+              <li nz-menu-item nzMatchRouter>
+                <a routerLink="/addorder">Add Product</a>
+              </li>
+              <li nz-menu-item nzMatchRouter>
+                <a routerLink="/update">Update Product</a>
+              </li>
+              </ul>
+            </li>
+            <li routerLink="/login" nz-submenu nzOpen nzTitle="Log out" nzIcon="logout" (click)="logout()">
+            </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+            <span class="trigger"
+               nz-icon
+               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+            ></span>
+        </span>
+      </div>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

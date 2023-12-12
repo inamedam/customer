@@ -180,6 +180,7 @@ export class CustomerService {
     console.log('Retrieved Token:', this.authToken);
   }
 
+
   private getRequestHeaders(): HttpHeaders {
     return new HttpHeaders({
       'Content-Type': 'application/json',
@@ -243,6 +244,12 @@ export class CustomerService {
   softDeleteCustomer(customerId: string): Observable<void> {
     const url = `${this.customersUrl}/delete/${customerId}`;
     return this.http.patch<void>(url, null, { headers: this.getRequestHeaders() });
+  }
+
+  public getCustomerWithSort(offset: number, pageSize: number, field: string, sort: string): Observable<Page<Customer>> {
+    const apiUrl = `http://localhost:8080/v1/customers/byPageWithSort?offset=${offset}&pageSize=${pageSize}&field=${field}&sort=${sort}`;
+    console.log('Request URL:', apiUrl);
+    return this.http.get<Page<Customer>>(apiUrl,{ headers: this.getRequestHeaders() });
   }
 
   public updateCustomer(customer: Customer): Observable<Customer> {
